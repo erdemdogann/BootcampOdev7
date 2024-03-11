@@ -12,5 +12,5 @@ class ToDoRepository(var tds: ToDoDataSource) {
 
     suspend fun load(): List<ToDoData> = tds.load()
 
-    suspend fun search(searchWords: String) : List<ToDoData> = tds.search(searchWords)
+    suspend fun search(searchWords: String): List<ToDoData> = tds.search(searchWords)
 }

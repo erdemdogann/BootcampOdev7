@@ -9,6 +9,7 @@ import com.example.bootcampodev7.databinding.CardEditBinding
 import com.example.bootcampodev7.ui.fragment.MainFragmentDirections
 import com.example.bootcampodev7.ui.viewmodel.MainViewModel
 import com.example.bootcampodev7.utils.gecis
+import com.google.android.material.snackbar.Snackbar
 
 class ToDoAdapter(
     var toDo: List<ToDoData>,
@@ -35,6 +36,13 @@ class ToDoAdapter(
         holder.itemBinding.toDoText.setOnClickListener {
             val gecis = MainFragmentDirections.gotoUpdate(todoMake = toDo)
             Navigation.gecis(it, gecis)
+        }
+
+        holder.itemBinding.imageView.setOnClickListener {
+            Snackbar.make(it, "Are you sure delete this ${toDo.toDo_make} ?", Snackbar.LENGTH_SHORT)
+                .setAction("Yes") {
+                    viewModel.delete(toDo.toDo_id)
+                }.show()
         }
     }
 }
