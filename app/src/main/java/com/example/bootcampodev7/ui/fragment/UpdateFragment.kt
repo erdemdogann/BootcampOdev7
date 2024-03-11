@@ -22,7 +22,7 @@ class UpdateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentUpdateBinding.inflate(inflater, container, false)
-        return binding.root
+
 
         val bundle: UpdateFragmentArgs by navArgs()
         val take = bundle.todoMake
@@ -33,6 +33,7 @@ class UpdateFragment : Fragment() {
             val make = binding.updateText.text.toString()
             viewModel.update(take.toDo_id, make)
         }
+        return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
